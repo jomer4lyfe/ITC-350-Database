@@ -32,26 +32,3 @@ INSERT INTO PreBuilt (PreSerial, PreName, PreBrand, PrePrice, PWRSerial, MoboSer
 INSERT INTO Storage (StorSerial, StorBrand, StorName, StorType, StorPrice, StorSize, PreSerial) VALUES
 (7001, 'Samsung', '970 EVO', 'SSD', 129, 1000, 6001),
 (7002, 'Western Digital', 'Blue HDD', 'HDD', 49, 2000, 6002);
-
-
-
--- Delete data from Storage table
-DELETE FROM Storage WHERE StorSerial IN (7001, 7002);
-
--- Delete data from PreBuilt table
-DELETE FROM PreBuilt WHERE PreSerial IN (6001, 6002);
-
--- Delete data from PowerSupply table
-DELETE FROM PowerSupply WHERE PWRSerial IN (5001, 5002);
-
--- Delete data from Motherboard table
-DELETE FROM Motherboard WHERE MoboSerial IN (4001, 4002);
-
--- Delete data from Memory table
-DELETE FROM Memory WHERE RAMSerial IN (3001, 3002);
-
--- Delete data from CPU table
-DELETE FROM CPU WHERE CPUSerial IN (2001, 2002);
-
--- Delete data from GPU table
-DELETE FROM GPU WHERE GPUSerial IN (1001, 1002);
