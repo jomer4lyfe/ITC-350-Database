@@ -1,0 +1,57 @@
+-- Insert data into GPU table
+INSERT INTO GPU (VRAMSize, GPUClockSpeed, GPUSerial, GPUName, GPUCores, GPUCardBrand, GPUBrand, GPUPrice) VALUES
+(8, 1.5, 1001, 'RTX 3070', 5888, 'NVIDIA', 'GeForce', 499),
+(12, 1.7, 1002, 'RX 6700 XT', 2560, 'AMD', 'Radeon', 479);
+
+-- Insert data into CPU table
+INSERT INTO CPU (CPUSerial, CPUBrand, CPUName, CPUCores, CPUClockSpeed, CPUCache, CPUPrice) VALUES
+(2001, 'Intel', 'i7-11700K', 8, 3.6, 16, 399),
+(2002, 'AMD', 'Ryzen 5 5600X', 6, 3.7, 32, 299);
+
+-- Insert data into Memory table
+INSERT INTO Memory (RamGeneration, RAMSerial, RAMBrand, RAMSpeed, RAMName, RAMTotalSize, RAMPrice, RamStickCount) VALUES
+('DDR4', 3001, 'Corsair', 3200, 'Vengeance LPX', 16, 89, 2),
+('DDR4', 3002, 'G.Skill', 3600, 'Trident Z', 32, 159, 4);
+
+-- Insert data into Motherboard table
+INSERT INTO Motherboard (MoboSerial, MoboBrand, MoboName, CPUBrandCompatability, MoboPrice) VALUES
+(4001, 'ASUS', 'ROG Strix Z590-E', 'Intel', 299),
+(4002, 'MSI', 'B550-A Pro', 'AMD', 139);
+
+-- Insert data into PowerSupply table
+INSERT INTO PowerSupply (PWRSerial, PWRBrand, PWRName, PWRWatts, PWRPrice) VALUES
+(5001, 'EVGA', 'SuperNOVA 750 G5', 750, 129),
+(5002, 'Corsair', 'RM850x', 850, 139);
+
+-- Insert data into PreBuilt table
+INSERT INTO PreBuilt (PreSerial, PreName, PreBrand, PrePrice, PWRSerial, MoboSerial, CPUSerial, GPUSerial, RAMSerial) VALUES
+(6001, 'Gaming Beast', 'CyberPowerPC', 1499, 5001, 4001, 2001, 1001, 3001),
+(6002, 'Workstation Pro', 'Dell', 1999, 5002, 4002, 2002, 1002, 3002);
+
+-- Insert data into Storage table
+INSERT INTO Storage (StorSerial, StorBrand, StorName, StorType, StorPrice, StorSize, PreSerial) VALUES
+(7001, 'Samsung', '970 EVO', 'SSD', 129, 1000, 6001),
+(7002, 'Western Digital', 'Blue HDD', 'HDD', 49, 2000, 6002);
+
+
+
+-- Delete data from Storage table
+DELETE FROM Storage WHERE StorSerial IN (7001, 7002);
+
+-- Delete data from PreBuilt table
+DELETE FROM PreBuilt WHERE PreSerial IN (6001, 6002);
+
+-- Delete data from PowerSupply table
+DELETE FROM PowerSupply WHERE PWRSerial IN (5001, 5002);
+
+-- Delete data from Motherboard table
+DELETE FROM Motherboard WHERE MoboSerial IN (4001, 4002);
+
+-- Delete data from Memory table
+DELETE FROM Memory WHERE RAMSerial IN (3001, 3002);
+
+-- Delete data from CPU table
+DELETE FROM CPU WHERE CPUSerial IN (2001, 2002);
+
+-- Delete data from GPU table
+DELETE FROM GPU WHERE GPUSerial IN (1001, 1002);
