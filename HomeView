@@ -1,0 +1,16 @@
+Home Page View
+
+CREATE OR REPLACE VIEW HomePage AS
+SELECT 'CPU' AS table_name, CPUName FROM CPU
+UNION ALL
+SELECT 'GPU' AS table_name, GPUName FROM GPU
+UNION ALL 
+SELECT 'Memory' AS table_name, RAMName FROM Memory
+UNION ALL
+SELECT 'Motherboard' AS table_name, MOBOName FROM Motherboard
+UNION ALL 
+SELECT 'PowerSupply' AS table_name, PWRName FROM PowerSupply
+UNION ALL 
+SELECT 'PreBuilt' AS table_name, PreName FROM PreBuilt
+UNION ALL 
+SELECT 'Storage' AS table_name, StorName FROM Storage;
