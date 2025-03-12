@@ -1,4 +1,4 @@
-Home Page View
+-- Home Page View
 
 CREATE OR REPLACE VIEW HomePage AS
 SELECT 'CPU' AS table_name, CPUName FROM CPU
