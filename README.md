@@ -1,5 +1,5 @@
 # ITC-350-Database
-A group project for the ITC 350 course
+A group project for the IT&C 350 course
 
 ## Software Used
 - Document information about all of the software you have used and how to connect to your database, run the schema script, etc.
