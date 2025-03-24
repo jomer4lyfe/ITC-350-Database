@@ -6,4 +6,4 @@ A group project for the IT&C 350 course
 - We are using MySQL for our DBMS and we setup our MySQL server on a Ubuntu Linux server. We have connected to our database via OpenVPN and MySQL Workbench. 
 
 ### Contributors:
-*Reagan Larsen, Josh Omer, Christopher Bingham, Macen Shuldberg*
+*Reagan Larsen, Josh Omer, Christopher Bingham, Mason Shuldberg*
