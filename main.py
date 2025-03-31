@@ -16,7 +16,7 @@ app.secret_key = os.getenv("SECRET")
 # Function to retrieve DB connection
 def get_db_connection():
     conn = mysql.connector.connect(
-        host=os.getenv("DB_HOST"),
+        host=os.getenv("DB_HOST"),     
         user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
         database=os.getenv("DB_DATABASE")
@@ -29,7 +29,7 @@ def get_all_items():
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
     # Query the db
-    query = "SELECT name, quantity FROM items"
+    query = "SELECT table_name FROM HomePage"
     cursor.execute(query)
     # Get result and close
     result = cursor.fetchall() # Gets result from query
