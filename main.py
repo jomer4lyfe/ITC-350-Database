@@ -79,7 +79,7 @@ def home():
 def browse_cpu():
     cpu_data = get_cpu() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
-    return render_template("browse_cpu.html", cpu_data)
+    return render_template("browse_cpu.html", data=cpu_data)
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
