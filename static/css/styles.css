@@ -21,3 +21,59 @@
     border: 1px solid rgb(77, 103, 190);
     background-color: #d0e1f5;
 }
+.body{
+    background-color: #ffffff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.common{
+    /*background-color: #cccccc;
+    border: solid 2px white;*/
+    position: absolute;
+    }
+.header{
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+    left: 5px;
+    height: 100px;
+    border-bottom: solid 1px grey;
+}
+.leftMenu{
+    z-index: 1;
+    top: 114px;
+    left: 5px;
+    bottom: 34px;
+    width: 100px;
+    border-right: solid 1px grey;
+
+}
+.mainBody{
+    top: 114px;
+    left: 114px;
+    bottom: 34px;
+    right: 114px;
+}
+.rightMenu{
+    top: 114px;
+    right: 5px;
+    bottom: 34px;
+    width: 100px;
+    padding-left: 8px;
+    border-left: solid 1px grey;
+}
+.footer{
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+    height: 20px;
+    font-size: 8px;
+    color: gray;
+    text-align: center;
+    position: fixed;
+}
+.subheader{
+    float: right;
+    border: solid 2px limegreen;
+    margin: 50px;
+}
