@@ -23,12 +23,15 @@
 
 
     <!-- Code for listing owned items -->
-    <h2>Browse Categories</h2>
+    <h2>Better PC Part Picker Products</h2>
     <ul>
         <!-- This is some python jinja2 code. Only existing items will be displayed. -->
         {% for item in items %}
-            <li>Name: {{ item[0] }} - Quantity: {{ item[1] }}</li>
+            <li>{{ item[0] }} <a href="/cpu">:Go</a></li>
         {% endfor %}
     </ul>
 </body>
 </html>
+
+
+
