@@ -75,7 +75,7 @@ def home():
     categories= get_all_categories() # Call defined function to get all items
     return render_template("index.html", items=categories) # Return the page to be rendered
 
-@app.route("/cpu", methods=["GET"])
+@app.route("/CPU", methods=["GET"])
 def browse_cpu():
     cpu_data = get_cpu() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
