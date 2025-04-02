@@ -9,8 +9,16 @@
     <div class="heading">
     <h1>CPU Browsing Page</h1>
     </div>
-    <div>
+    <div class="right">
        <p>Filters</p> 
+    </div>
+    <div class="body">
+        <ul>
+            <!-- This is some python jinja2 code. Only existing items will be displayed. -->
+            {% for item in data %}
+                <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price {{ item[6] }} </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
