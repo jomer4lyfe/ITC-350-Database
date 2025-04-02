@@ -1,0 +1,5 @@
+DB_HOST=172.16.33.8 # Your db host, probably 127.0.0.1
+DB_USER=itc350 # Your db username (probably root)
+DB_PASSWORD=Smile4ever! # Your db password
+DB_DATABASE=better_part_picker # Replace with your DB name
+SECRET=pjioawefoijasdvoaeiofjoaijdszfoivjidjsffsa # Change this to a real secure secret
