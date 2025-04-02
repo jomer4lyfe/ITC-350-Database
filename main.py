@@ -24,17 +24,47 @@ def get_db_connection():
     return conn
 
 # Get all items from the "items" table of the db
-def get_all_items():
+def get_all_categories():
     # Create a new database connection for each request
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
     # Query the db
-    query = "SELECT table_name FROM HomePage"
+    query = "SELECT Distinct table_name FROM HomePage"
     cursor.execute(query)
     # Get result and close
     result = cursor.fetchall() # Gets result from query
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return result
+
+def get_cpu():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    # Query the db
+    query = "SELECT * FROM CPU"
+    cursor.execute(query)
+    # Get result and close
+    result = cursor.fetchall() # Gets result from query
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return result
+
+def get_filtered_data():
+    # Using a form to get the filter parameters
+    data = request.form
+    price = data["price"]
+    brand = data["brand"]
+    table_name = data["name"]
+    # Might want to do an if here to add more filters
+    conn = get_db_connection() # Now that we have the filter parameters we can create a db connection
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM " + table_name + " WHERE " + table_name + "brand = " + brand + " AND " + table_name + "price = " + price + ";"
+
+    cursor.execute(query)
+    result = cursor.fetchall()
+    conn.close()
+    return result
+
 # ------------------------ END FUNCTIONS ------------------------ #
 
 
@@ -42,8 +72,14 @@ def get_all_items():
 # EXAMPLE OF GET REQUEST
 @app.route("/", methods=["GET"])
 def home():
-    items = get_all_items() # Call defined function to get all items
-    return render_template("index.html", items=items) # Return the page to be rendered
+    categories= get_all_categories() # Call defined function to get all items
+    return render_template("index.html", items=categories) # Return the page to be rendered
+
+@app.route("/cpu", methods=["GET"])
+def browse_cpu():
+    cpu_data = get_cpu() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_cpu.html", cpu_data)
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
