@@ -34,12 +34,15 @@
                     <!-- <label><input type="checkbox" id="priceASC" name="priceASC" value="ASC"> Lowest to Highest</label><br>
                     <label><input type="checkbox" id="priceDESC" name="priceDESC" value="DESC"> Highest to Lowest</label>
                 -->
-            <label for="brands">Choose a Brand</label>
-            <select name="brands" id="brands">
-                {% for item in data %}
-                    <option value="{{item[1]}}"> {{item[1]}}</option>          
-                {% endfor %}
-            </select>
+            <br>
+            <legend> Brand Filter
+                <label for="brands"></label>
+                <select name="brands" id="brands">
+                    {% for item in data %}
+                        <option value="{{item[1]}}"> {{item[1]}}</option>          
+                    {% endfor %}
+                </select>
+            </legend>
                 </fieldset>
                 <br>
                 <button type="submit">Filter</button>
