@@ -11,29 +11,31 @@
         <div class="header">
         <h1>CPU Browsing Page</h1>
         </div>
-        <div class="leftMenu">
-        <p>Filters</p> 
-        <form action="/CPU" method="GET">
-            <fieldset>
-                <legend>Price Filter:</legend>
-                <label><input type="checkbox" id="priceASC" name="priceASC" value="ASC"> Lowest to Highest</label><br>
-                <label><input type="checkbox" id="priceDESC" name="priceDESC" value="DESC"> Highest to Lowest</label>
-            </fieldset>
+        <div class="main-content">
+            <div class="leftMenu">
+            <p>Filters</p> 
+            <form action="/CPU" method="GET">
+                <fieldset>
+                    <legend>Price Filter:</legend>
+                    <label><input type="checkbox" id="priceASC" name="priceASC" value="ASC"> Lowest to Highest</label><br>
+                    <label><input type="checkbox" id="priceDESC" name="priceDESC" value="DESC"> Highest to Lowest</label>
+                </fieldset>
+                <br>
+                <button type="submit">Filter</button>
             <br>
-            <button type="submit">Filter</button>
-        <br>
-        </form>
-        </div>
-        <div class="mainBody">
-            <ul>
-                <!-- This is some python jinja2 code. Only existing items will be displayed. -->
-                {% for item in data %}
-                    <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price {{ item[6] }} </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="rightMenu">
-            
+            </form>
+            </div>
+            <div class="mainBody">
+                <ul>
+                    <!-- This is some python jinja2 code. Only existing items will be displayed. -->
+                    {% for item in data %}
+                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price {{ item[6] }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="rightMenu">
+                
+            </div>
         </div>
         <div class="footer">
             
