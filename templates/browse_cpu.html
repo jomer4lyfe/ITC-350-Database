@@ -13,9 +13,15 @@
     <div class="leftMenu">
        <p>Filters</p> 
     <form action="/CPU" method="GET">
-        <label><input type="checkbox" id="priceASC"> Lowest to Highest</label>
-        <label><input type="checkbox" id="priceDESC"> Highest to Lowest</label>
-    <br><br>
+        <fieldset>
+            <legend>Price Filter:</legend>
+            <label><input type="checkbox" id="priceASC"> Lowest to Highest</label><br>
+            <label><input type="checkbox" id="priceDESC"> Highest to Lowest</label>
+        </fieldset>
+        <br>
+        <button type="submit">Filter</button>
+    <br>
+    </form>
     </div>
     <div class="mainBody">
         <ul>
