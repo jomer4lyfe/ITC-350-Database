@@ -40,9 +40,25 @@ def get_cpu():
     # Create a new database connection for each request
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
-    # Query the db
+    '''
+    data = request.form
+    priceASC = data["priceASC"]
+    priceDESC = data["priceDESC"]
+    if priceASC == "on":
+        query = "SELECT * FROM CPU ORDER BY price ASC"
+    elif priceDESC == "on":
+        query = "SELECT * FROM CPU ORDER BY price DESC"
+    else:
+        query = "SELECT * FROM CPU"
+    '''
+    
+    price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
+    if price_sort in ('ASC', 'DESC'):
+        query += f" ORDER BY CPUPrice {price_sort}"
+
     cursor.execute(query)
+    
     # Get result and close
     result = cursor.fetchall() # Gets result from query
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
