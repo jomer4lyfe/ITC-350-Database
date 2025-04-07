@@ -17,13 +17,13 @@
             <legend>Price Filter:</legend>
 
             <label>
-                <input type="radio" name="price_sort" value"ASC"
+                <input type="radio" name="price_sort" value = "ASC"
                 {% if request.args.get('price_sort') == 'ASC' %}checked{% endif %}>
                 <input type="number" name="min_price" placeholder="Min Price" value="{{ request.args.get('min_price') }}">
                     Lowest to Highest
             </label><br>
             <label>
-                <input type="radio" name="price_sort" value"DESC"
+                <input type="radio" name="price_sort" value = "DESC"
                 {% if request.args.get('price_sort') == 'DESC' %}checked{% endif %}>
                 <input type="number" name="max_price" placeholder="Max Price" value="{{ request.args.get('max_price') }}">
                     Highest to Lowest
