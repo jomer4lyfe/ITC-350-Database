@@ -51,6 +51,7 @@ def get_cpu():
     else:
         query = "SELECT * FROM CPU"
     '''
+    brand: str = "-- Brands --" 
     brand = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
