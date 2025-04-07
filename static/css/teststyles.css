@@ -30,7 +30,7 @@ body {
 }
 
 .leftMenu {
-    flex: 0 0 150px; /* Adjust width as needed */
+    flex: 0 0 250px; /* Adjust width as needed */
     border-right: solid 1px grey;
     padding: 10px;
 }
