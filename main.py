@@ -40,25 +40,7 @@ def get_cpu():
     # Create a new database connection for each request
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
-    # Query the db
-    query = "SELECT * FROM CPU"
     '''
-    default query = above
-    l2hquery = filtered
-    h2low = filtered
-    if default values are met:
-        cursor.execture(default_query)
-    else if form is set to l2h
-        cursor.executre(filtered)
-    '''
-
-    '''
-    if something query = SELECT....
-    else if something other = SELECT other...
-
-    cursor.execute(query)
-    '''
-
     data = request.form
     priceASC = data["priceASC"]
     priceDESC = data["priceDESC"]
@@ -68,8 +50,10 @@ def get_cpu():
         query = "SELECT * FROM CPU ORDER BY price DESC"
     else:
         query = "SELECT * FROM CPU"
-
+    '''
+    query = "SELECT * FROM CPU" # TEMP
     cursor.execute(query)
+    
     # Get result and close
     result = cursor.fetchall() # Gets result from query
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
