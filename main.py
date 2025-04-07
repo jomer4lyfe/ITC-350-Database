@@ -42,6 +42,22 @@ def get_cpu():
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
     # Query the db
     query = "SELECT * FROM CPU"
+    '''
+    default query = above
+    l2hquery = filtered
+    h2low = filtered
+    if default values are met:
+        cursor.execture(default_query)
+    else if form is set to l2h
+        cursor.executre(filtered)
+    '''
+
+    '''
+    if something query = SELECT....
+    else if something other = SELECT other...
+
+    cursor.execute(query)
+    '''
     cursor.execute(query)
     # Get result and close
     result = cursor.fetchall() # Gets result from query
