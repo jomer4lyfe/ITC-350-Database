@@ -51,8 +51,7 @@ def get_cpu():
     else:
         query = "SELECT * FROM CPU"
     '''
-    data = request.form
-    brand: str = data["brands"]
+    brand = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
     if brand != "-- Brands --":
