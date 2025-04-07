@@ -51,7 +51,8 @@ def get_cpu():
 def get_filtered_data():
     # Using a form to get the filter parameters
     data = request.form
-    price = data["price"]
+    priceASC = data["priceASC"]
+    priceDESC = data["priceDESC"]
     brand = data["brand"]
     table_name = data["name"]
     # Might want to do an if here to add more filters

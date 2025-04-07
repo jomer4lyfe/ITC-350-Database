@@ -3,39 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/teststyles.css">
     <title>CPU_Browsing Page</title>
 </head>
 <body>
-    <div class="common header">
-    <h1>CPU Browsing Page</h1>
-    </div>
-    <div class="common leftMenu">
-       <p>Filters</p> 
-    <form action="/CPU" method="GET">
-        <fieldset>
-            <legend>Price Filter:</legend>
-            <label><input type="checkbox" id="priceASC"> Lowest to Highest</label><br>
-            <label><input type="checkbox" id="priceDESC"> Highest to Lowest</label>
-        </fieldset>
+    <div class="container">
+        <div class="header">
+        <h1>CPU Browsing Page</h1>
+        </div>
+        <div class="leftMenu">
+        <p>Filters</p> 
+        <form action="/CPU" method="GET">
+            <fieldset>
+                <legend>Price Filter:</legend>
+                <label><input type="checkbox" id="priceASC"> Lowest to Highest</label><br>
+                <label><input type="checkbox" id="priceDESC"> Highest to Lowest</label>
+            </fieldset>
+            <br>
+            <button type="submit">Filter</button>
         <br>
-        <button type="submit">Filter</button>
-    <br>
-    </form>
-    </div>
-    <div class=" common mainBody">
-        <ul>
-            <!-- This is some python jinja2 code. Only existing items will be displayed. -->
-            {% for item in data %}
-                <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price {{ item[6] }} </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="common rightMenu">
-        right
-    </div>
-    <div class="common footer">
-        footer
+        </form>
+        </div>
+        <div class="mainBody">
+            <ul>
+                <!-- This is some python jinja2 code. Only existing items will be displayed. -->
+                {% for item in data %}
+                    <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price {{ item[6] }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="rightMenu">
+            
+        </div>
+        <div class="footer">
+            
+        </div>
     </div>
 </body>
 </html>
