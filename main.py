@@ -58,6 +58,17 @@ def get_cpu():
 
     cursor.execute(query)
     '''
+
+    data = request.form
+    priceASC = data["priceASC"]
+    priceDESC = data["priceDESC"]
+    if priceASC == "on":
+        query = "SELECT * FROM CPU ORDER BY price ASC"
+    elif priceDESC == "on":
+        query = "SELECT * FROM CPU ORDER BY price DESC"
+    else:
+        query = "SELECT * FROM CPU"
+
     cursor.execute(query)
     # Get result and close
     result = cursor.fetchall() # Gets result from query
