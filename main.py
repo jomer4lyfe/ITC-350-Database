@@ -51,7 +51,12 @@ def get_cpu():
     else:
         query = "SELECT * FROM CPU"
     '''
-    query = "SELECT * FROM CPU" # TEMP
+    
+    price_sort = request.args.get("price_sort")
+    query = "SELECT * FROM CPU"
+    if price_sort in ('ASC', 'DESC'):
+        query += f" ORDER BY price {price_sort}"
+
     cursor.execute(query)
     
     # Get result and close
