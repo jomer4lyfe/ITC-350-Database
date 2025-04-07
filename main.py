@@ -55,7 +55,7 @@ def get_cpu():
     price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
     if brand != "-- Brands --":
-        query += f" WHERE CPUBrand = '{brand}"
+        query += f" WHERE CPUBrand = '{brand}'"
     if price_sort in ('ASC', 'DESC'):
         query += f" ORDER BY CPUPrice {price_sort}"
 
