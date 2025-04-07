@@ -44,7 +44,7 @@
     top: 114px;
     left: 5px;
     bottom: 34px;
-    width: 250px;
+    width: 100px;
     border-right: solid 1px grey;
 
 }
@@ -52,7 +52,7 @@
     top: 114px;
     left: 114px;
     bottom: 34px;
-    right: 264px;
+    right: 114px;
 }
 .rightMenu{
     top: 114px;
