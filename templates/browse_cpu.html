@@ -36,11 +36,12 @@
                 -->
             </fieldset>
             <br>
-            
+
             <fieldset>
             <legend> Brand Filter: </legend>
                 <label for="brands"></label>
                 <select name="brands" id="brands">
+                    <option value="">-- Brands --</option>
                     {% for item in data %}
                         <option value="{{item[1]}}"> {{item[1]}}</option>          
                     {% endfor %}
