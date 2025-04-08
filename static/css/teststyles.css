@@ -1,5 +1,5 @@
 body {
-    background-color: #bac8fb;
+    background-color: #c7cfb7;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,12 +9,15 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    gap: 10px;
 }
 
 .header {
     flex: 0 0 100px;
     border-bottom: solid 1px grey;
     border-radius: 20px;
+    background-color: #9dad7f;
+    margin-bottom: 10px;
 }
 
 .footer {
@@ -24,11 +27,14 @@ body {
     text-align: center;
     border-top: solid 1px grey;
     border-radius: 20px;
+    background-color: #9dad7f;
+    margin-top: 10px;
 }
 
 .main-content {
     display: flex;
     flex: 1;
+    gap: 10px;
 }
 
 .leftMenu {
@@ -36,14 +42,15 @@ body {
     border-right: solid 1px grey;
     padding: 10px;
     border-radius: 20px;
-    background-color: aliceblue;
+    background-color: #557174;
+    margin-right: 10px;
 }
 
 .mainBody {
     flex: 1;
     padding: 10px;
     border-radius: 20px;
-    background-color: tan;
+    background-color: #9dad7f;
 }
 
 .rightMenu {
@@ -51,5 +58,6 @@ body {
     border-left: solid 1px grey;
     padding: 10px;
     border-radius: 20px;
-    background-color: beige;
+    background-color: #557174;
+    margin-left: 10px;
 }
