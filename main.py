@@ -56,6 +56,8 @@ def get_cpu():
     price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
     
+    print(brand) # Delete this
+
     if brand not in ('-- Brands --', ''):
         query += f" WHERE CPUBrand = '{brand}'"
     if price_sort in ('ASC', 'DESC'):
