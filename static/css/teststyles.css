@@ -1,5 +1,5 @@
 body {
-    background-color: #c7cfb7;
+    background-color: lightblue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
@@ -14,9 +14,8 @@ body {
 
 .header {
     flex: 0 0 100px;
-    border-bottom: solid 1px grey;
     border-radius: 20px;
-    background-color: #9dad7f;
+    background-color: #b0b1af;
     margin-bottom: 10px;
 }
 
@@ -25,9 +24,8 @@ body {
     font-size: 8px;
     color: gray;
     text-align: center;
-    border-top: solid 1px grey;
     border-radius: 20px;
-    background-color: #9dad7f;
+    background-color: #b0b1af;
     margin-top: 10px;
 }
 
@@ -50,7 +48,7 @@ body {
     flex: 1;
     padding: 10px;
     border-radius: 20px;
-    background-color: #9dad7f;
+    background-color: #b0b1af;
 }
 
 .rightMenu {
