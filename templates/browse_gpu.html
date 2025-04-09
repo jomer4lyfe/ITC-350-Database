@@ -57,7 +57,7 @@
                     <!-- This is some python jinja2 code. Only existing items will be displayed. -->
                     {% for item in data %}
                         <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - VRAM Size: {{ item[3] }} - Clock Speed: {{ item[4] }} 
-                            - GPU Cores: {{ item[5] }} - GPU Card Brand {{ item[6] }} - Price ${{ "%.2f"|format(item[7]) }} </li>
+                            - GPU Cores: {{ item[5] }} - GPU Card Brand - {{ item[6] }} - Price ${{ "%.2f"|format(item[7]) }} </li>
                     {% endfor %}
                 </ul>
             </div>
