@@ -118,7 +118,7 @@ def get_gpu():
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
     
-    brand = request.args.get("brands")
+    brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM GPU"
     brandFilter = "SELECT GPUBrand FROM GPU"
