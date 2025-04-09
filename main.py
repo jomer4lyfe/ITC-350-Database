@@ -61,6 +61,31 @@ def get_cpu():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_gpu():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM GPU"
+    brandFilter = "SELECT GPUBrand FROM GPU"
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', '', None):
+       mainQuery += f" WHERE GPUBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY GPUPrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_filtered_data():
     # Using a form to get the filter parameters
     data = request.form
@@ -94,6 +119,12 @@ def browse_cpu():
     cpu_data: list = get_cpu() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_cpu.html", data=cpu_data[0], filter=cpu_data[1])
+
+@app.route("/GPU", methods=["GET"])
+def browse_gpu():
+    gpu_data: list = get_gpu() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_gpu.html", data=gpu_data[0], filter=gpu_data[1])
 
 @app.route("/PowerSupply", methods=["GET"])
 def browse_pwr():
