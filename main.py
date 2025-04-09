@@ -49,7 +49,7 @@ def get_cpu():
     print(f"This is what is in brand: {brand}") # Delete this
 
     # mainQuery for sorting
-    if brand not in ('-- Brands --', ''):
+    if brand not in ('-- Brands --', '', None):
         mainQuery += f" WHERE CPUBrand = '{brand}'"
     if price_sort in ('ASC', 'DESC'):
         mainQuery += f" ORDER BY CPUPrice {price_sort}"
