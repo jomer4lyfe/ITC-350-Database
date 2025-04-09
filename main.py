@@ -186,7 +186,7 @@ def browse_pwr():
 
 @app.route("/Storage", methods=["GET"])
 def browse_storage():
-    pwr_data: list = get_storage() # Call defined function to get all items
+    storage_data: list = get_storage() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_storage.html", data=storage_data[0], filter=storage_data[1])
 
