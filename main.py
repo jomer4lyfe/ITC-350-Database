@@ -95,6 +95,12 @@ def browse_cpu():
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_cpu.html", data=cpu_data[0], filter=cpu_data[1])
 
+@app.route("/PowerSupply", methods=["GET"])
+def browse_pwr():
+    pwr_data: list = get_pwr() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_pwr.html", data=pwr_data[0], filter=pwr_data[1])
+
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
 def add_item():
