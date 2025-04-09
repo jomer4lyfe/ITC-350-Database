@@ -41,8 +41,14 @@ def get_cpu():
     conn = get_db_connection()  # Create a new database connection
     cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
     
+    brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     query = "SELECT * FROM CPU"
+    
+    print(f"This is what is in brand: {brand}") # Delete this
+
+    if brand not in ('-- Brands --', ''):
+        query += f" WHERE CPUBrand = '{brand}'"
     if price_sort in ('ASC', 'DESC'):
         query += f" ORDER BY CPUPrice {price_sort}"
 

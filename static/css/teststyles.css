@@ -1,5 +1,5 @@
 body {
-    background-color: #cac6fc;
+    background-color: lightblue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,11 +9,14 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    gap: 10px;
 }
 
 .header {
     flex: 0 0 100px;
-    border-bottom: solid 1px grey;
+    border-radius: 20px;
+    background-color: #b0b1af;
+    margin-bottom: 10px;
 }
 
 .footer {
@@ -21,27 +24,38 @@ body {
     font-size: 8px;
     color: gray;
     text-align: center;
-    border-top: solid 1px grey;
+    border-radius: 20px;
+    background-color: #b0b1af;
+    margin-top: 10px;
 }
 
 .main-content {
     display: flex;
     flex: 1;
+    gap: 10px;
 }
 
 .leftMenu {
     flex: 0 0 250px; /* Adjust width as needed */
     border-right: solid 1px grey;
     padding: 10px;
+    border-radius: 20px;
+    background-color: #557174;
+    margin-right: 10px;
 }
 
 .mainBody {
     flex: 1;
     padding: 10px;
+    border-radius: 20px;
+    background-color: #b0b1af;
 }
 
 .rightMenu {
     flex: 0 0 100px;
     border-left: solid 1px grey;
     padding: 10px;
+    border-radius: 20px;
+    background-color: #557174;
+    margin-left: 10px;
 }
