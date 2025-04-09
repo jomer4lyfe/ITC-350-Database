@@ -88,6 +88,31 @@ def get_pwr():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_mem():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM Memory"
+    brandFilter = "SELECT RAMBrand FROM Memory"
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', '', None):
+       mainQuery += f" WHERE RAMBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY RAMPrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_gpu():
     # Create a new database connection for each request
     conn = get_db_connection()  # Create a new database connection
@@ -222,6 +247,11 @@ def browse_mobo():
     mobo_data: list = get_mobo() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_mobo.html", data=mobo_data[0], filter=mobo_data[1])
+
+@app.route("/MEMORY", methods=["GET"])
+def browse_mem():
+    mem_data: list = get_mem()
+    return render_template("browse_memory.html", data=mem_data[0], filter=mem_data[1])
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
