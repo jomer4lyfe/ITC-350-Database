@@ -42,7 +42,7 @@
                 <label for="brands"></label>
                 <select name="brands" id="brands">
                     <option value="">-- Brands --</option>
-                    {% for item in data %}
+                    {% for item in filter %}
                         <option value="{{item[1]}}"> {{item[1]}}</option>          
                     {% endfor %}
                 </select>

@@ -43,21 +43,25 @@ def get_cpu():
     
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
-    query = "SELECT * FROM CPU"
+    mainQuery = "SELECT * FROM CPU"
+    brandFilter = "SELECT CPUBrand FROM CPU"
     
     print(f"This is what is in brand: {brand}") # Delete this
 
+    # mainQuery for sorting
     if brand not in ('-- Brands --', ''):
-        query += f" WHERE CPUBrand = '{brand}'"
+        mainQuery += f" WHERE CPUBrand = '{brand}'"
     if price_sort in ('ASC', 'DESC'):
-        query += f" ORDER BY CPUPrice {price_sort}"
+        mainQuery += f" ORDER BY CPUPrice {price_sort}"
 
-    cursor.execute(query)
+    cursor.execute(mainQuery)
     
     # Get result and close
-    result = cursor.fetchall() # Gets result from query
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
-    return result
+    return [mainResult, brandResult]
 
 def get_filtered_data():
     # Using a form to get the filter parameters
@@ -89,9 +93,9 @@ def home():
 
 @app.route("/CPU", methods=["GET"])
 def browse_cpu():
-    cpu_data = get_cpu() # Call defined function to get all items
+    cpu_data[] = get_cpu() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
-    return render_template("browse_cpu.html", data=cpu_data)
+    return render_template("browse_cpu.html", data=cpu_data[0], filter=cpu_data[1])
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
