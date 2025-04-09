@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/teststyles.css">
-    <title>PowerSupply_Browsing Page</title>
+    <title>CPU_Browsing Page</title>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>PowerSupply Browsing Page</h1>
+            <h1>Storage Browsing Page</h1>
         </div>
         <div class="main-content">
             <div class="leftMenu">
             <p>Filters</p> 
-            <form action="/PowerSupply" method="GET">
+            <form action="/Storage" method="GET">
             <fieldset>
                 <legend>Price Filter:</legend>
 
@@ -49,6 +49,7 @@
             </fieldset>
                 <br>
                 <button type="submit">Filter</button>
+                <button type="submit">Reset</button>
             <br>
             </form>
             </div>
@@ -56,7 +57,7 @@
                 <ul>
                     <!-- This is some python jinja2 code. Only existing items will be displayed. -->
                     {% for item in data %}
-                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Watts: {{ item[3] }} - Price ${{ "%.2f"|format(item[4]) }} </li>
+                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price ${{ "%.2f"|format(item[6]) }} </li>
                     {% endfor %}
                 </ul>
             </div>
