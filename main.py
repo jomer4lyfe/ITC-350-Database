@@ -221,7 +221,7 @@ def browse_mobo():
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_mobo.html", data=mobo_data[0], filter=mobo_data[1])
 
-@app.route("/MEMORY", methods=["GET"])
+@app.route("/Memory", methods=["GET"])
 def browse_mem():
     mem_data: list = get_mem()
     return render_template("browse_memory.html", data=mem_data[0], filter=mem_data[1])
