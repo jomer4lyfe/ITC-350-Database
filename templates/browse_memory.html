@@ -54,9 +54,9 @@
             </div>
             <div class="mainBody">
                 <ul>
-                    <!-- RamGeneration RAMSerial RAMBrand RAMName RAMTotalSize RAMPrice RamStickCount -->
+                    <!-- RamGeneration0 RAMSerial1 RAMBrand2 RAMSpeed3 RAMName4 RAMTotalSize5 RAMPrice6 RamStickCount7 -->
                     {% for item in data %}
-                        <li>Brand: {{ item[3] }} - Name: {{ item[4] }} - Generation: {{ item[1] }} - Total Size: {{ item[5] }} - Stick Count: {{ item[7] }} - Price ${{ "%.2f"|format(item[6]) }} </li>
+                        <li>Brand: {{ item[2] }} - Name: {{ item[4] }} - Generation: {{ item[0] }} - Total Size: {{ item[5] }} - Stick Count: {{ item[7] }} - Price ${{ "%.2f"|format(item[6]) }} </li>
                     {% endfor %}
                 </ul>
             </div>
