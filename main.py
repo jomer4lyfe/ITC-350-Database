@@ -163,6 +163,33 @@ def get_storage():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_mobo():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM Motherboard"
+    brandFilter = "SELECT MoboBrand FROM Motherboard"
+    
+    print(f"This is what is in brand: {brand}") # Delete this
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', ''):
+        mainQuery += f" WHERE MoboBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY MoboPrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_filtered_data():
     # Using a form to get the filter parameters
     data = request.form
