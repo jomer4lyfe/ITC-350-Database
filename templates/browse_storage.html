@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/teststyles.css">
+    <title>CPU_Browsing Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CPU Browsing Page</h1>
+        </div>
+        <div class="main-content">
+            <div class="leftMenu">
+            <p>Filters</p> 
+            <form action="/CPU" method="GET">
+            <fieldset>
+                <legend>Price Filter:</legend>
+
+            <label>
+                <input type="checkbox" id="price_sort" name="price_sort" value= "ASC"
+                {% if request.args.get('price_sort') == 'ASC' %}checked{% endif %}>
+                <!--<input type="number" name="min_price" placeholder="Min Price" value="{{ request.args.get('min_price') }}">-->
+                    Lowest to Highest
+            </label><br>
+            <label>
+                <input type="checkbox" id="price_sort" name="price_sort" value= "DESC"
+                {% if request.args.get('price_sort') == 'DESC' %}checked{% endif %}>
+                <!--<input type="number" name="max_price" placeholder="Max Price" value="{{ request.args.get('max_price') }}">-->
+                    Highest to Lowest
+            </label>
+
+                    <!-- <label><input type="checkbox" id="priceASC" name="priceASC" value="ASC"> Lowest to Highest</label><br>
+                    <label><input type="checkbox" id="priceDESC" name="priceDESC" value="DESC"> Highest to Lowest</label>
+                -->
+            </fieldset>
+            <br>
+
+            <fieldset>
+            <legend> Brand Filter: </legend>
+                <label for="brands"></label>
+                <select name="brands" id="brands">
+                    <option value="">-- Brands --</option>
+                    {% for item in filter %}
+                        <option value="{{item[0]}}"> {{item[0]}}</option>          
+                    {% endfor %}
+                </select>
+            </fieldset>
+                <br>
+                <button type="submit">Filter</button>
+                <button type="submit">Reset</button>
+            <br>
+            </form>
+            </div>
+            <div class="mainBody">
+                <ul>
+                    <!-- This is some python jinja2 code. Only existing items will be displayed. -->
+                    {% for item in data %}
+                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price ${{ "%.2f"|format(item[6]) }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="rightMenu">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+</body>
+</html>

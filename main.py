@@ -113,6 +113,31 @@ def get_gpu():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_storage():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM Storage"
+    brandFilter = "SELECT StorBrand FROM Storage"
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', '', None):
+       mainQuery += f" WHERE StorBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY StorPrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_filtered_data():
     # Using a form to get the filter parameters
     data = request.form
@@ -158,6 +183,12 @@ def browse_pwr():
     pwr_data: list = get_pwr() # Call defined function to get all items
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_pwr.html", data=pwr_data[0], filter=pwr_data[1])
+
+@app.route("/Storage", methods=["GET"])
+def browse_storage():
+    pwr_data: list = get_storage() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_storage.html", data=storage_data[0], filter=storage_data[1])
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
