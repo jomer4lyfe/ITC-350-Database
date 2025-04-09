@@ -63,6 +63,31 @@ def get_cpu():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_pwr():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM PowerSupply"
+    brandFilter = "SELECT PWRBrand FROM PowerSupply"
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', '', None):
+       mainQuery += f" WHERE PWRBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY PWRPrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_gpu():
     # Create a new database connection for each request
     conn = get_db_connection()  # Create a new database connection
