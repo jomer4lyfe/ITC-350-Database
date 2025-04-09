@@ -80,16 +80,16 @@ DROP TABLE IF EXISTS `GPU`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `GPU` (
+  `GPUSerial` int NOT NULL,
+  `GPUBrand` varchar(30) NOT NULL,
+  `GPUName` varchar(30) NOT NULL,
   `VRAMSize` int NOT NULL,
   `GPUClockSpeed` float NOT NULL,
-  `GPUSerial` int NOT NULL,
-  `GPUName` varchar(30) NOT NULL,
   `GPUCores` int NOT NULL,
   `GPUCardBrand` varchar(30) NOT NULL,
-  `GPUBrand` varchar(30) NOT NULL,
   `GPUPrice` int NOT NULL,
   PRIMARY KEY (`GPUSerial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
