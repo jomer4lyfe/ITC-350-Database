@@ -215,6 +215,12 @@ def browse_storage():
     # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_storage.html", data=storage_data[0], filter=storage_data[1])
 
+@app.route("/Motherboard", methods=["GET"])
+def browse_mobo():
+    mobo_data: list = get_mobo() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_mobo.html", data=mobo_data[0], filter=mobo_data[1])
+
 @app.route("/MEMORY", methods=["GET"])
 def browse_mem():
     mem_data: list = get_mem()
