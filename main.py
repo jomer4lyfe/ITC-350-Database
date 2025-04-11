@@ -121,7 +121,7 @@ def get_gpu():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM GPU"
-    brandFilter = "SELECT GPUBrand FROM GPU"
+    brandFilter = "SELECT DISTINCT GPUBrand FROM GPU"
 
     # mainQuery for sorting
     if brand not in ('-- Brands --', '', None):
