@@ -248,31 +248,28 @@ def home():
 @app.route("/CPU", methods=["GET"])
 def browse_cpu():
     cpu_data: list = get_cpu() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_cpu.html", data=cpu_data[0], filter=cpu_data[1])
 
 @app.route("/GPU", methods=["GET"])
 def browse_gpu():
     gpu_data: list = get_gpu() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_gpu.html", data=gpu_data[0], filter=gpu_data[1])
 
 @app.route("/PowerSupply", methods=["GET"])
 def browse_pwr():
     pwr_data: list = get_pwr() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+
     return render_template("browse_pwr.html", data=pwr_data[0], filter=pwr_data[1])
 
 @app.route("/Storage", methods=["GET"])
 def browse_storage():
     storage_data: list = get_storage() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+
     return render_template("browse_storage.html", data=storage_data[0], filter=storage_data[1])
 
 @app.route("/Motherboard", methods=["GET"])
 def browse_mobo():
     mobo_data: list = get_mobo() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_mobo.html", data=mobo_data[0], filter=mobo_data[1])
 
 @app.route("/Memory", methods=["GET"])
@@ -283,7 +280,6 @@ def browse_mem():
 @app.route("/PreBuilt", methods=["GET"])
 def browse_pre():
     pre_data: list = get_pre() # Call defined function to get all items
-    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
     return render_template("browse_pre.html", data=pre_data[0], filter=pre_data[1])
 
 # EXAMPLE OF POST REQUEST
