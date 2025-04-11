@@ -190,6 +190,33 @@ def get_mobo():
     conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
     return [mainResult, brandResult]
 
+def get_pre():
+    # Create a new database connection for each request
+    conn = get_db_connection()  # Create a new database connection
+    cursor = conn.cursor() # Creates a cursor for the connection, you need this to do queries
+    
+    brand: str = request.args.get("brands")
+    price_sort = request.args.get("price_sort")
+    mainQuery = "SELECT * FROM PreBuilt"
+    brandFilter = "SELECT PreBrand FROM PreBuilt"
+    
+    print(f"This is what is in brand: {brand}") # Delete this
+
+    # mainQuery for sorting
+    if brand not in ('-- Brands --', ''):
+        mainQuery += f" WHERE PreBrand = '{brand}'"
+    if price_sort in ('ASC', 'DESC'):
+        mainQuery += f" ORDER BY PrePrice {price_sort}"
+
+    cursor.execute(mainQuery)
+    
+    # Get result and close
+    mainResult = cursor.fetchall() # Gets result from query
+    cursor.execute(brandFilter) # Gets brands from CPU query
+    brandResult = cursor.fetchall()
+    conn.close() # Close the db connection (NOTE: You should do this after each query, otherwise your database may become locked)
+    return [mainResult, brandResult]
+
 def get_filtered_data():
     # Using a form to get the filter parameters
     data = request.form
@@ -252,6 +279,12 @@ def browse_mobo():
 def browse_mem():
     mem_data: list = get_mem()
     return render_template("browse_memory.html", data=mem_data[0], filter=mem_data[1])
+
+@app.route("/PreBuilt", methods=["GET"])
+def browse_pre():
+    pre_data: list = get_pre() # Call defined function to get all items
+    # filtered_results = get_filtered_data() # I'm don't think this will work since we need data from the rendered page before the page is rendered. 
+    return render_template("browse_pre.html", data=pre_data[0], filter=pre_data[1])
 
 # EXAMPLE OF POST REQUEST
 @app.route("/new-item", methods=["POST"])
