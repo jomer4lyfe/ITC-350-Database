@@ -60,7 +60,7 @@
                 <ul>
                     <!-- This is some python jinja2 code. Only existing items will be displayed. -->
                     {% for item in data %}
-                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Cores: {{ item[3] }} - Clock Speed: {{ item[4] }} - Cache in MB: {{ item[5] }} - Price ${{ "%.2f"|format(item[6]) }} </li>
+                        <li>Brand: {{ item[1] }} - Name: {{ item[2] }} - Type: {{ item[3] }} - Price: Price ${{ "%.2f"|format(item[4]) }} - Size: {{ item[5] }}GB</li>
                     {% endfor %}
                 </ul>
             </div>
