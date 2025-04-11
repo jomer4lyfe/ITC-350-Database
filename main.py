@@ -197,7 +197,7 @@ def get_pre():
     
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
-    mainQuery = "SELECT * FROM PreBuilt"
+    mainQuery = "SELECT pb.PreName, pb.PreBrand, pb.PrePrice, c.CPUName, g.GPUName, m.RAMTotalSize, mo.MoboName, ps.PWRWatts, s.StorSize FROM PreBuilt pb LEFT JOIN CPU c ON pb.CPUSerial = c.CPUSerial LEFT JOIN GPU g ON pb.GPUSerial = g.GPUSerial LEFT JOIN Memory m ON pb.RAMSerial = m.RAMSerial lEFT JOIN Motherboard mo ON pb.MoboSerial = mo.MoboSerial LEFT JOIN PowerSupply ps ON pb.PWRSerial = ps.PWRSerial LEFT JOIN Storage s ON pb.PreSerial = s.PreSerial"
     brandFilter = "SELECT PreBrand FROM PreBuilt"
     
     print(f"This is what is in brand: {brand}") # Delete this
