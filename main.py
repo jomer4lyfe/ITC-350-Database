@@ -44,7 +44,7 @@ def get_cpu():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM CPU"
-    brandFilter = "SELECT CPUBrand FROM CPU"
+    brandFilter = "SELECT DISTINCT CPUBrand FROM CPU"
     
     print(f"This is what is in brand: {brand}") # Delete this
 
@@ -71,7 +71,7 @@ def get_pwr():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM PowerSupply"
-    brandFilter = "SELECT PWRBrand FROM PowerSupply"
+    brandFilter = "SELECT DISTINCT PWRBrand FROM PowerSupply"
 
     # mainQuery for sorting
     if brand not in ('-- Brands --', '', None):
@@ -96,7 +96,7 @@ def get_mem():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM Memory"
-    brandFilter = "SELECT RAMBrand FROM Memory"
+    brandFilter = "SELECT DISTINCT RAMBrand FROM Memory"
 
     # mainQuery for sorting
     if brand not in ('-- Brands --', '', None):
@@ -146,7 +146,7 @@ def get_storage():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM Storage"
-    brandFilter = "SELECT StorBrand FROM Storage"
+    brandFilter = "SELECT DISTINCT StorBrand FROM Storage"
 
     # mainQuery for sorting
     if brand not in ('-- Brands --', '', None):
@@ -171,7 +171,7 @@ def get_mobo():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM Motherboard"
-    brandFilter = "SELECT MoboBrand FROM Motherboard"
+    brandFilter = "SELECT DISTINCT MoboBrand FROM Motherboard"
     
     print(f"This is what is in brand: {brand}") # Delete this
 
@@ -198,7 +198,7 @@ def get_pre():
     brand: str = request.args.get("brands")
     price_sort = request.args.get("price_sort")
     mainQuery = "SELECT * FROM PreBuilt"
-    brandFilter = "SELECT PreBrand FROM PreBuilt"
+    brandFilter = "SELECT DISTINCT PreBrand FROM PreBuilt"
     
     print(f"This is what is in brand: {brand}") # Delete this
 
