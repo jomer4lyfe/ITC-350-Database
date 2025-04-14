@@ -285,7 +285,7 @@ def browse_pre():
     return render_template("browse_pre.html", data=pre_data[0], filter=pre_data[1])
 
 # EXAMPLE OF POST REQUEST
-@app.route("/new-item", methods=["POST"])
+'''@app.route("/new-item", methods=["POST"])
 def add_item():
     try:
         # Get items from the form
@@ -303,7 +303,7 @@ def add_item():
     # If an error occurs, this code block will be called
     except Exception as e:
         flash(f"An error occurred: {str(e)}", "error") # Send the error message to the web page
-        return redirect(url_for("home")) # Redirect to home
+        return redirect(url_for("home")) # Redirect to home'''
 # ------------------------ END ROUTES ------------------------ #
 
 
